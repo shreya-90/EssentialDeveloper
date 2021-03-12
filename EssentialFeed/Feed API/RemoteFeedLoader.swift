@@ -25,6 +25,6 @@ public final class RemoteFeedLoader {
     public func load() {
        // HTTPClient.shared.get(from: URL(string: "https://a-url.com")!)   // locating the client & calling a function => violating SRP
        client.get(from: url)  //problem solved
-        
+         //client.get(from: url) 
     }
 }

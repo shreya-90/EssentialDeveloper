@@ -22,7 +22,7 @@ class RemoteFeedLoaderTests :  XCTestCase {
         
         //sut.load()  //execute load command
         
-        XCTAssertNil(client.requestedURL)  // we didnt make a load request so url should be nil
+        XCTAssertTrue(client.requestedURLs.isEmpty)  // we didnt make a load request so url should be nil
     }
     
     
@@ -39,7 +39,25 @@ class RemoteFeedLoaderTests :  XCTestCase {
         
         //Assert - assert that a url request was initiated in the client
        // XCTAssertNotNil(client.requestedURL)
-        XCTAssertEqual(client.requestedURL,url)
+        XCTAssertEqual(client.requestedURLs,[url])
+        
+    }
+    
+    func test_loadTwice_rwquestDataFromURLTwice(){
+        
+        let url = URL(string: "https://a-given-url.com")!
+        //Arrange -  Given a client and sut
+        //let client = HTTPClientSpy()
+        
+        let (sut,client) = makeSUT(url : url)
+        
+        //Act -  When we invoke load
+        sut.load()
+        //sut.load()
+        
+        //Assert - assert that a url request was initiated in the client
+       // XCTAssertNotNil(client.requestedURL)
+        XCTAssertEqual(client.requestedURLs,[url])
         
     }
     
@@ -54,10 +72,12 @@ class RemoteFeedLoaderTests :  XCTestCase {
     }
     
     private class HTTPClientSpy : HTTPClient {
-        var requestedURL : URL?
+        //var requestedURL : URL?
+        var requestedURLs = [URL]()
         
         func get(from url: URL) {
-            self.requestedURL = url
+            //self.requestedURL = url
+            requestedURLs.append(url)
         }
         
     }
