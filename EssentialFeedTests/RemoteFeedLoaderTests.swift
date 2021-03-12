@@ -10,22 +10,30 @@ import Foundation
 
 import XCTest
 class RemoteFeedLoader {
+    
+    let client : HTTPClient
+    
+    init(client:  HTTPClient) {
+        self.client = client
+    }
+    
     func load() {
-        HTTPClient.shared.get(from: URL(string: "https://a-url.com")!)
+       // HTTPClient.shared.get(from: URL(string: "https://a-url.com")!)   // locating the client & calling a function => violating SRP
+        
+       client.get(from: URL(string: "https://a-url.com")!)  //problem solved
+        
     }
 }
 
-class HTTPClient {
-   static var shared = HTTPClient()
-   func get(from url: URL) {
-      
-   }
+protocol HTTPClient {   // this is currently an abstract class and swift provides a better way of defining these                   interfaces - protocols
+
+   func get(from url: URL)
 }
 
 class HTTPClientSpy : HTTPClient {
     var requestedURL : URL?
     
-    override func get(from url: URL) {
+    func get(from url: URL) {
         self.requestedURL = url
     }
     
@@ -37,9 +45,8 @@ class RemoteFeedLoaderTests :  XCTestCase {
     func test_init_doesNotRequestDataFromURL() {
         
         let client = HTTPClientSpy()
-        HTTPClient.shared = client
-        //system under test is the remote feed loader
-        _ = RemoteFeedLoader()
+       
+        _ = RemoteFeedLoader(client:client)
         
         
         //sut.load()  //execute load command
@@ -53,8 +60,8 @@ class RemoteFeedLoaderTests :  XCTestCase {
         
         //Arrange -  Given a client and sut
         let client = HTTPClientSpy()
-        HTTPClient.shared = client
-        let sut = RemoteFeedLoader()
+        
+        let sut = RemoteFeedLoader(client:client)
         
         //Act -  When we invoke load
         sut.load()
@@ -62,7 +69,5 @@ class RemoteFeedLoaderTests :  XCTestCase {
         //Assert - assert that a url request was initiated in the client
         XCTAssertNotNil(client.requestedURL)
         
-        
-        //But why does HttpClient need to be a singleton... there needs to be a good reason
     }
 }
