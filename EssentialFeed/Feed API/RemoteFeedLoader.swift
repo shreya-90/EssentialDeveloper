@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol HTTPClient {   // this is currently an abstract class and swift provides a better way of defining these                   interfaces - protocols
-   func get(from url: URL)
+    func get(from url: URL,  completion : @escaping (Error) -> Void)
 }
 
 public final class RemoteFeedLoader {
@@ -17,14 +17,20 @@ public final class RemoteFeedLoader {
     let client : HTTPClient
     let url : URL
     
+    public enum Error : Swift.Error{
+        case connectivity
+        
+    }
     public init(url : URL  ,client:  HTTPClient) {
         self.url = url
         self.client = client
     }
     
-    public func load() {
+    public func load(completion :  @escaping (Error) -> Void = { _ in }) {
        // HTTPClient.shared.get(from: URL(string: "https://a-url.com")!)   // locating the client & calling a function => violating SRP
-       client.get(from: url)  //problem solved
+        client.get(from: url) { error in
+            completion(.connectivity)
+        } //problem solved
          //client.get(from: url) 
     }
 }
