@@ -35,7 +35,7 @@ class RemoteFeedLoaderTests :  XCTestCase {
         let (sut,client) = makeSUT(url : url)
         
         //Act -  When we invoke load
-        sut.load()
+        sut.load(completion: { _ in })
         
         //Assert - assert that a url request was initiated in the client
        // XCTAssertNotNil(client.requestedURL)
@@ -52,7 +52,7 @@ class RemoteFeedLoaderTests :  XCTestCase {
         let (sut,client) = makeSUT(url : url)
         
         //Act -  When we invoke load
-        sut.load()
+        sut.load(completion: { _ in })
         //sut.load()
         
         //Assert - assert that a url request was initiated in the client
@@ -80,6 +80,24 @@ class RemoteFeedLoaderTests :  XCTestCase {
         
     }
     
+    
+    func test_load_deliversErrorOnNon200HttpResponse() {
+        
+        let (sut,client) = makeSUT()
+         //client.error = NSError(domain: "Test", code: 0)
+        
+        var capturedErrors = [RemoteFeedLoader.Error]()
+        sut.load {
+            capturedErrors.append($0)
+            
+        }
+        
+        client.complete(withStatusCode :  400 )
+        
+        XCTAssertEqual(capturedErrors, [RemoteFeedLoader.Error.invalidData])
+        
+    }
+    
     //MARK: - HELPERS
     private func makeSUT(url: URL = URL(string: "https://a-url.com")!)  -> (sut : RemoteFeedLoader, client : HTTPClientSpy)
     {
@@ -101,9 +119,10 @@ class RemoteFeedLoaderTests :  XCTestCase {
             return messages.map { $0.url }
         }
         
-        private var messages = [(url : URL,completion : (Error) -> Void)]()
+        private var messages = [(url : URL,completion :
+            (Error?, HTTPURLResponse?) -> Void)]()
        
-        func get(from url: URL, completion: @escaping (Error) -> Void)
+        func get(from url: URL, completion: @escaping (Error?, HTTPURLResponse?) -> Void)
         {
             messages.append((url,completion))
 //            completions.append(completion)
@@ -112,8 +131,17 @@ class RemoteFeedLoaderTests :  XCTestCase {
         
         func complete(with error :  Error, with index : Int = 0){
 //            completions[index](error)
-            messages[index].completion(error)
+            messages[index].completion(error,nil)
         }
         
+
+        func complete( withStatusCode code :  Int, at index : Int = 0){
+             let response = HTTPURLResponse(
+                url: requestedURLs[index],
+                statusCode: code,
+                httpVersion: nil,
+                headerFields: nil)
+            messages[index].completion(nil, response) 
+        }
     }
 }
