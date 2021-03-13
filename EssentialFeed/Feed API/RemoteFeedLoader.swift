@@ -8,8 +8,13 @@
 
 import Foundation
 
+public enum HttpClientResult{
+    case success(HTTPURLResponse)
+    case failure(Error)
+}
+
 public protocol HTTPClient {   // this is currently an abstract class and swift provides a better way of defining these                   interfaces - protocols
-    func get(from url: URL,  completion : @escaping (Error?, HTTPURLResponse?) -> Void)
+    func get(from url: URL,  completion : @escaping (HttpClientResult) -> Void)
 }
 
 public final class RemoteFeedLoader {
@@ -29,15 +34,15 @@ public final class RemoteFeedLoader {
     
     public func load(completion :  @escaping (Error) -> Void) {
        // HTTPClient.shared.get(from: URL(string: "https://a-url.com")!)   // locating the client & calling a function => violating SRP
-        client.get(from: url) { error,response in
+        client.get(from: url) { result in
             
-            if response != nil {
+            switch result {
+            case .success:
                 completion(.invalidData)
-
-            }else {
+            case .failure:
                 completion(.connectivity)
-
             }
+            
         } //problem solved
          //client.get(from: url) 
     }
