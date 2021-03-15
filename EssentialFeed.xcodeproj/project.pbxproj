@@ -10,13 +10,13 @@
 		356FFC8A25FA0EB3003C6489 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 356FFC8025FA0EB3003C6489 /* EssentialFeed.framework */; };
 		356FFC8F25FA0EB3003C6489 /* EssentialFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FFC8E25FA0EB3003C6489 /* EssentialFeedTests.swift */; };
 		356FFC9125FA0EB3003C6489 /* EssentialFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = 356FFC8325FA0EB3003C6489 /* EssentialFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		356FFC9B25FA1005003C6489 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FFC9A25FA1005003C6489 /* FeedItem.swift */; };
 		356FFC9D25FA1795003C6489 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FFC9C25FA1795003C6489 /* FeedLoader.swift */; };
 		356FFCA425FA2295003C6489 /* RemoteFeedLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FFCA325FA2295003C6489 /* RemoteFeedLoaderTests.swift */; };
 		356FFCA725FB8D16003C6489 /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FFCA625FB8D16003C6489 /* RemoteFeedLoader.swift */; };
 		356FFCAB25FF78A9003C6489 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FFC9A25FA1005003C6489 /* FeedItem.swift */; };
 		356FFCAC25FF78B1003C6489 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FFC9C25FA1795003C6489 /* FeedLoader.swift */; };
 		356FFCAD25FF78B4003C6489 /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FFCA625FB8D16003C6489 /* RemoteFeedLoader.swift */; };
+		356FFCB125FFC527003C6489 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FFC9A25FA1005003C6489 /* FeedItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,9 +227,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				356FFCB125FFC527003C6489 /* FeedItem.swift in Sources */,
 				356FFC9D25FA1795003C6489 /* FeedLoader.swift in Sources */,
 				356FFCAD25FF78B4003C6489 /* RemoteFeedLoader.swift in Sources */,
-				356FFC9B25FA1005003C6489 /* FeedItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
