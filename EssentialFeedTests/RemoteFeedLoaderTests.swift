@@ -109,6 +109,21 @@ class RemoteFeedLoaderTests :  XCTestCase {
         
     }
     
+    //HAppy path tests
+    
+    func test_load_deliversNoItemsOn200HttpResponseWithEmptyJSONList(){
+         let (sut,client) = makeSUT()
+
+        var capturedResults = [RemoteFeedLoader.Result]()
+        sut.load{ capturedResults.append($0)}
+        
+        let emptyJSON = Data(bytes : "{\"items\":[]}".utf8)
+        client.complete(withStatusCode: 200, data: emptyJSON)
+        
+        XCTAssertEqual(capturedResults, [.success([] )])
+
+    }
+    
     //MARK: - HELPERS
     private func makeSUT(url: URL = URL(string: "https://a-url.com")!)  -> (sut : RemoteFeedLoader, client : HTTPClientSpy)
     {
@@ -132,11 +147,6 @@ class RemoteFeedLoaderTests :  XCTestCase {
     }
     
     private class HTTPClientSpy : HTTPClient {
-        
-        
-        //var requestedURL : URL?
-//        var requestedURLs = [URL]()
-//        var completions = [(Error) -> Void]()
         
         var requestedURLs : [URL] {
             return messages.map { $0.url }
