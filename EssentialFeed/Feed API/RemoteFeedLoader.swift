@@ -8,14 +8,6 @@
 
 import Foundation
 
-public enum HttpClientResult{
-    case success(Data,HTTPURLResponse)
-    case failure(Error)
-}
-
-public protocol HTTPClient {   // this is currently an abstract class and swift provides a better way of defining these                   interfaces - protocols
-    func get(from url: URL,  completion : @escaping (HttpClientResult) -> Void)
-}
 
 public final class RemoteFeedLoader {
     
