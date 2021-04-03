@@ -124,9 +124,9 @@ class RemoteFeedLoaderTests :  XCTestCase {
     }
     
     func test_load_deliversItemsOn200HttpResponseWithJSONItems(){
-        let (sut,client) = makeSUT()
+            let (sut,client) = makeSUT()
         
-        let item1 = makeItem(
+            let item1 = makeItem(
             id : UUID(),
             description: nil,
             location: nil,
@@ -143,12 +143,12 @@ class RemoteFeedLoaderTests :  XCTestCase {
            
         
             
-        let items = [item1.model,item2.model]  
+            let items = [item1.model,item2.model]
         
-        expect(sut, toCompleteWith: .success(items), when: {
+            expect(sut, toCompleteWith: .success(items), when: {
             let json = makeItemsJSON(with: [item1.json,item2.json])
             client.complete(withStatusCode: 200, data: json)
-        })
+            })
         
         
     }

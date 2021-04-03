@@ -17,6 +17,8 @@
 		356FFCAC25FF78B1003C6489 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FFC9C25FA1795003C6489 /* FeedLoader.swift */; };
 		356FFCAD25FF78B4003C6489 /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FFCA625FB8D16003C6489 /* RemoteFeedLoader.swift */; };
 		356FFCB125FFC527003C6489 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FFC9A25FA1005003C6489 /* FeedItem.swift */; };
+		356FFCB3260B39DB003C6489 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FFCB2260B39DB003C6489 /* HttpClient.swift */; };
+		356FFCB4260B3AA0003C6489 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FFCB2260B39DB003C6489 /* HttpClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,7 @@
 		356FFC9C25FA1795003C6489 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
 		356FFCA325FA2295003C6489 /* RemoteFeedLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoaderTests.swift; sourceTree = "<group>"; };
 		356FFCA625FB8D16003C6489 /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
+		356FFCB2260B39DB003C6489 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,7 @@
 			children = (
 				356FFCA625FB8D16003C6489 /* RemoteFeedLoader.swift */,
 				356FFC9A25FA1005003C6489 /* FeedItem.swift */,
+				356FFCB2260B39DB003C6489 /* HttpClient.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
@@ -229,6 +233,7 @@
 			files = (
 				356FFCB125FFC527003C6489 /* FeedItem.swift in Sources */,
 				356FFC9D25FA1795003C6489 /* FeedLoader.swift in Sources */,
+				356FFCB3260B39DB003C6489 /* HttpClient.swift in Sources */,
 				356FFCAD25FF78B4003C6489 /* RemoteFeedLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +246,7 @@
 				356FFCA425FA2295003C6489 /* RemoteFeedLoaderTests.swift in Sources */,
 				356FFCA725FB8D16003C6489 /* RemoteFeedLoader.swift in Sources */,
 				356FFCAC25FF78B1003C6489 /* FeedLoader.swift in Sources */,
+				356FFCB4260B3AA0003C6489 /* HttpClient.swift in Sources */,
 				356FFC8F25FA0EB3003C6489 /* EssentialFeedTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
