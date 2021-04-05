@@ -20,7 +20,7 @@ public final class RemoteFeedLoader : FeedLoader{
         
     }
     
-    public typealias Result = LoadFeedResult<Error>   //doemain error type
+    public typealias Result = LoadFeedResult   //doemain error type
     
 //    public enum Result : Equatable {
 //        case success([FeedItem])
@@ -42,7 +42,7 @@ public final class RemoteFeedLoader : FeedLoader{
             case let .success(data, response):
                 completion(FeedItemsMapper.map(data, response))  //retain cycle with self
             case .failure:
-                completion(.failure(.connectivity))
+                completion(.failure(RemoteFeedLoader.Error.connectivity))
             }
             
         } //problem solved
