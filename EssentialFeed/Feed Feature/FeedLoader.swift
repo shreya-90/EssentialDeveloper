@@ -13,7 +13,7 @@ public enum LoadFeedResult<Error: Swift.Error> {
     case failure(Error)   //Swift Error type
 }
 
-extension LoadFeedResult: Equatable where Error: Equatable {}
+//extension LoadFeedResult: Equatable where Error: Equatable {}
 
 protocol FeedLoader {
     
