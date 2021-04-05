@@ -68,7 +68,7 @@ class RemoteFeedLoaderTests :  XCTestCase {
          //client.error = NSError(domain: "Test", code: 0)
         
         
-        expect(sut,toCompleteWith: .failure(.connectivity), when : {
+        expect(sut,toCompleteWith: .failure(RemoteFeedLoader.Error.connectivity), when : {
             let clientError = NSError(domain: "Testing", code: 0)
             client.complete(with :  clientError)
             
