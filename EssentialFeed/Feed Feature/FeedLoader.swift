@@ -15,7 +15,7 @@ public enum LoadFeedResult {
 
 //extension LoadFeedResult: Equatable where Error: Equatable {}
 
-protocol FeedLoader {
+public protocol FeedLoader {
     
     func load(completion: @escaping (LoadFeedResult) -> Void)
 }
