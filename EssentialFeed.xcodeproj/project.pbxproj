@@ -21,6 +21,7 @@
 		356FFCB4260B3AA0003C6489 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FFCB2260B39DB003C6489 /* HttpClient.swift */; };
 		356FFD0D261878CA003C6489 /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FFD0C261878CA003C6489 /* FeedItemsMapper.swift */; };
 		356FFD0E26187991003C6489 /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FFD0C261878CA003C6489 /* FeedItemsMapper.swift */; };
+		356FFD11261C4F92003C6489 /* URLSessionHttpClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FFD10261C4F92003C6489 /* URLSessionHttpClientTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		356FFCA625FB8D16003C6489 /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
 		356FFCB2260B39DB003C6489 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		356FFD0C261878CA003C6489 /* FeedItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsMapper.swift; sourceTree = "<group>"; };
+		356FFD10261C4F92003C6489 /* URLSessionHttpClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHttpClientTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				356FFCA325FA2295003C6489 /* RemoteFeedLoaderTests.swift */,
+				356FFD10261C4F92003C6489 /* URLSessionHttpClientTests.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				356FFCAB25FF78A9003C6489 /* FeedItem.swift in Sources */,
 				356FFCA425FA2295003C6489 /* RemoteFeedLoaderTests.swift in Sources */,
 				356FFCA725FB8D16003C6489 /* RemoteFeedLoader.swift in Sources */,
+				356FFD11261C4F92003C6489 /* URLSessionHttpClientTests.swift in Sources */,
 				356FFD0E26187991003C6489 /* FeedItemsMapper.swift in Sources */,
 				356FFCAC25FF78B1003C6489 /* FeedLoader.swift in Sources */,
 				356FFCB4260B3AA0003C6489 /* HttpClient.swift in Sources */,
