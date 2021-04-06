@@ -16,7 +16,7 @@ class URLSessionHttpCLient {
         self.session = session
     }
     
-   private func get(from url  : URL){
+    func get(from url  : URL){
         session.dataTask(with: url) { (_, _, _) in
             
         }.resume()
@@ -25,15 +25,15 @@ class URLSessionHttpCLient {
 
 class URLSessionHTTPClientTests : XCTestCase {
     
-    func test_get_createsDataTaskWithURL(){
-        let url = URL(string: "http://any-url.com")!
-        let session = URLSessionSpy()
-        let sut = URLSessionHttpCLient(session:session)
-        
-        sut.get(from : url)
-        
-        XCTAssertEqual(session.receivedURLs, [url])
-    }
+//    func test_get_createsDataTaskWithURL(){
+//        let url = URL(string: "http://any-url.com")!
+//        let session = URLSessionSpy()
+//        let sut = URLSessionHttpCLient(session:session)
+//        
+//        sut.get(from : url)
+//        
+//        XCTAssertEqual(session.receivedURLs, [url])
+//    }
     
     func test_get_resumesDataTask(){
         
