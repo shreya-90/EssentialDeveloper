@@ -25,7 +25,7 @@ class URLSessionHttpCLient {
     }
     
     func get(from url  : URL, completion : @escaping (HttpClientResult) -> Void){
-        let url = URL(string: "http://wrong-url.com")!
+//        let url = URL(string: "http://wrong-url.com")!
         session.dataTask(with: url) { (_, _, error) in
             if let error = error {
                 completion(.failure(error))
@@ -55,7 +55,7 @@ class URLSessionHTTPClientTests : XCTestCase {
 //            let session = HTTPSessionSpy()
         
         //still need to stub the url with an error
-        URLProtocolStub.stub(url: url,data:nil,response:nil,error: error)
+        URLProtocolStub.stub(data:nil,response:nil,error: error)
         
             let sut = URLSessionHttpCLient()
         
@@ -74,13 +74,34 @@ class URLSessionHTTPClientTests : XCTestCase {
         wait(for: [exp], timeout: 1.0)
         URLProtocolStub.stopInterceptingRequests()
     }
+    
+    
+    func test_getFromURL_performsGETRequestsWithURL(){
+        URLProtocolStub.startInterceptingRequests()
+        
+        let url = URL(string: "http://any-url.com")!
+        let exp = expectation(description: "wait for request to complete...")
+        URLProtocolStub.observeRequests { request in
+            XCTAssertEqual(request.url, url)
+            XCTAssertEqual(request.httpMethod, "GET")
+            
+            exp.fulfill()
+        }
+        
+        URLSessionHttpCLient().get(from: url) { _ in }
+        
+        wait(for: [exp], timeout: 1.0)
+        
+        URLProtocolStub.stopInterceptingRequests()
+    }
 }
 
 // MARK :- Helper Methods
 
 private class URLProtocolStub : URLProtocol {
     
-    private static var stubs = [URL:Stub]()
+    private static var stubs : Stub?
+    private static var requestObserver : ((URLRequest) -> Void)?   //Capture the closure
     
     private struct Stub {
         let data : Data?
@@ -88,8 +109,12 @@ private class URLProtocolStub : URLProtocol {
         let error :  Error?
     }
     
-    static func  stub(url : URL , data: Data?, response : URLResponse?, error : Error? = nil){
-        stubs[url] = Stub( data: data, response:response, error: error)
+    static func  stub( data: Data?, response : URLResponse?, error : Error? = nil){
+        stubs = Stub( data: data, response:response, error: error)
+    }
+    
+    static func observeRequests(observer : @escaping (URLRequest) -> Void) {
+        requestObserver = observer
     }
     
     static func startInterceptingRequests(){
@@ -98,13 +123,16 @@ private class URLProtocolStub : URLProtocol {
     
     static func stopInterceptingRequests(){
         URLProtocol.unregisterClass(URLProtocolStub.self)
-        stubs = [:]
+        stubs = nil
+        requestObserver = nil
     }
     
     override class func canInit(with request: URLRequest) -> Bool {    // CLASS method. So we don't have an instance yet
-        guard let url =  request.url else { return false }
-        
-        return URLProtocolStub.stubs[url] != nil
+//        guard let url =  request.url else { return false }
+//
+//        return URLProtocolStub.stubs[url] != nil
+        requestObserver?(request)
+        return true
     }
     
     override class func canonicalRequest(for request: URLRequest) -> URLRequest {
@@ -112,7 +140,7 @@ private class URLProtocolStub : URLProtocol {
     }
     
     override func startLoading() {
-        guard let url = request.url, let stub =  URLProtocolStub.stubs[url] else { return }
+        guard let url = request.url, let stub =  URLProtocolStub.stubs else { return }
         
         if let data = stub.data {
             client?.urlProtocol(self, didLoad: data)
