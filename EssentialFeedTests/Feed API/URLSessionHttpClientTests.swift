@@ -46,10 +46,20 @@ class URLSessionHTTPClientTests : XCTestCase {
 //        XCTAssertEqual(session.receivedURLs, [url])
 //    }
         
+    override class func setUp() {    /* setup and teardown are run  for each test case */
+        
+        super.setUp()
+        URLProtocolStub.startInterceptingRequests()
+    }
+    
+    override func tearDown() {
+        
+        super.tearDown()
+        URLProtocolStub.stopInterceptingRequests()
+    }
     
     func test_getFromURL_failsOnRequestError(){
         
-        URLProtocolStub.startInterceptingRequests()
             let url = URL(string: "http://any-url.com")!
             let error = NSError(domain: "test", code: 1)
 //            let session = HTTPSessionSpy()
@@ -72,12 +82,10 @@ class URLSessionHTTPClientTests : XCTestCase {
         }
         
         wait(for: [exp], timeout: 1.0)
-        URLProtocolStub.stopInterceptingRequests()
     }
     
     
     func test_getFromURL_performsGETRequestsWithURL(){
-        URLProtocolStub.startInterceptingRequests()
         
         let url = URL(string: "http://any-url.com")!
         let exp = expectation(description: "wait for request to complete...")
@@ -92,7 +100,6 @@ class URLSessionHTTPClientTests : XCTestCase {
         
         wait(for: [exp], timeout: 1.0)
         
-        URLProtocolStub.stopInterceptingRequests()
     }
 }
 
