@@ -46,7 +46,7 @@ class URLSessionHTTPClientTests : XCTestCase {
 //        XCTAssertEqual(session.receivedURLs, [url])
 //    }
         
-    override class func setUp() {    /* setup and teardown are run  for each test case */
+    override class func setUp() {    /* setup and teardown are run for each test case */
         
         super.setUp()
         URLProtocolStub.startInterceptingRequests()
@@ -60,17 +60,16 @@ class URLSessionHTTPClientTests : XCTestCase {
     
     func test_getFromURL_failsOnRequestError(){
         
+        URLProtocolStub.startInterceptingRequests()
             let url = URL(string: "http://any-url.com")!
             let error = NSError(domain: "test", code: 1)
 //            let session = HTTPSessionSpy()
         
         //still need to stub the url with an error
         URLProtocolStub.stub(data:nil,response:nil,error: error)
-        
-            let sut = URLSessionHttpCLient()
-        
+                
             let exp = expectation(description: "Wait for completion")
-            sut.get(from: url) { result in
+            makeSUT().get(from: url) { result in
                 switch result {
                
                 case let .failure(receivedError as NSError):
@@ -82,10 +81,12 @@ class URLSessionHTTPClientTests : XCTestCase {
         }
         
         wait(for: [exp], timeout: 1.0)
+        URLProtocolStub.stopInterceptingRequests()
     }
     
     
     func test_getFromURL_performsGETRequestsWithURL(){
+        URLProtocolStub.startInterceptingRequests()
         
         let url = URL(string: "http://any-url.com")!
         let exp = expectation(description: "wait for request to complete...")
@@ -96,14 +97,19 @@ class URLSessionHTTPClientTests : XCTestCase {
             exp.fulfill()
         }
         
-        URLSessionHttpCLient().get(from: url) { _ in }
+        makeSUT().get(from: url) { _ in }
         
         wait(for: [exp], timeout: 1.0)
         
+        URLProtocolStub.stopInterceptingRequests()
     }
 }
 
 // MARK :- Helper Methods
+
+private func makeSUT() -> URLSessionHttpCLient {
+    return URLSessionHttpCLient()
+}
 
 private class URLProtocolStub : URLProtocol {
     
