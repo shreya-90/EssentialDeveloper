@@ -24,11 +24,15 @@ class URLSessionHttpCLient {
         self.session = session
     }
     
+    struct UnexpectedValueRepresentation : Error {}
+    
     func get(from url  : URL, completion : @escaping (HttpClientResult) -> Void){
 //        let url = URL(string: "http://wrong-url.com")!
         session.dataTask(with: url) { (_, _, error) in
             if let error = error {
                 completion(.failure(error))
+            } else {
+                completion(.failure(UnexpectedValueRepresentation()))
             }
         }.resume()
     }
@@ -82,6 +86,31 @@ class URLSessionHTTPClientTests : XCTestCase {
         wait(for: [exp], timeout: 1.0)
         URLProtocolStub.stopInterceptingRequests()
     }
+    
+    
+        func test_getFromURL_failsOnAllNilValues(){
+            
+            URLProtocolStub.startInterceptingRequests()
+            
+            URLProtocolStub.stub(data:nil,response:nil,error: nil)
+                    
+                let exp = expectation(description: "Wait for completion")
+                makeSUT().get(from: anyURL()) { result in
+                    switch result {
+                   
+                    case .failure:
+                        break
+                        
+                    default:
+                        XCTFail("Expected failure got \(result) instead")
+                }
+                    exp.fulfill()
+            }
+            
+            wait(for: [exp], timeout: 1.0)
+            URLProtocolStub.stopInterceptingRequests()
+        }
+    
     
     /* checks the URL comparison and other request parameters (body, query paramaters )*/
     func test_getFromURL_performsGETRequestsWithURL(){
