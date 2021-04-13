@@ -61,15 +61,14 @@ class URLSessionHTTPClientTests : XCTestCase {
     func test_getFromURL_failsOnRequestError(){
         
         URLProtocolStub.startInterceptingRequests()
-            let url = URL(string: "http://any-url.com")!
-            let error = NSError(domain: "test", code: 1)
+        let error = NSError(domain: "test", code: 1)
 //            let session = HTTPSessionSpy()
         
         //still need to stub the url with an error
         URLProtocolStub.stub(data:nil,response:nil,error: error)
                 
             let exp = expectation(description: "Wait for completion")
-            makeSUT().get(from: url) { result in
+            makeSUT().get(from: anyURL()) { result in
                 switch result {
                
                 case let .failure(receivedError as NSError):
@@ -88,7 +87,7 @@ class URLSessionHTTPClientTests : XCTestCase {
     func test_getFromURL_performsGETRequestsWithURL(){
         URLProtocolStub.startInterceptingRequests()
         
-        let url = URL(string: "http://any-url.com")!
+        let url = anyURL()
         let exp = expectation(description: "wait for request to complete...")
         URLProtocolStub.observeRequests { request in
             XCTAssertEqual(request.url, url)
@@ -97,7 +96,7 @@ class URLSessionHTTPClientTests : XCTestCase {
             exp.fulfill()
         }
         
-        makeSUT().get(from: url) { _ in }
+        makeSUT().get(from: anyURL()) { _ in }
         
         wait(for: [exp], timeout: 1.0)
         
@@ -113,6 +112,9 @@ class URLSessionHTTPClientTests : XCTestCase {
         return sut
     }
 
+    private func anyURL() -> URL {
+            return  URL(string: "http://any-url.com")!
+    }
     
 }
 
