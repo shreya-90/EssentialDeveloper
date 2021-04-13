@@ -57,7 +57,7 @@ class URLSessionHTTPClientTests : XCTestCase {
         super.tearDown()
         URLProtocolStub.stopInterceptingRequests()
     }
-    
+    /* checks if we stubbed with error then we get back error*/
     func test_getFromURL_failsOnRequestError(){
         
         URLProtocolStub.startInterceptingRequests()
@@ -84,7 +84,7 @@ class URLSessionHTTPClientTests : XCTestCase {
         URLProtocolStub.stopInterceptingRequests()
     }
     
-    
+    /* checks the URL comparison and other request parameters (body, query paramaters )*/
     func test_getFromURL_performsGETRequestsWithURL(){
         URLProtocolStub.startInterceptingRequests()
         
@@ -103,13 +103,22 @@ class URLSessionHTTPClientTests : XCTestCase {
         
         URLProtocolStub.stopInterceptingRequests()
     }
+    
+    //MARK:- Helper Methods
+    
+    /* factory method for sut */
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> URLSessionHttpCLient {
+        let sut =  URLSessionHttpCLient()
+        checkForMemoryLeaks(sut, file: file,line:line)
+        return sut
+    }
+
+    
 }
 
-// MARK :- Helper Methods
 
-private func makeSUT() -> URLSessionHttpCLient {
-    return URLSessionHttpCLient()
-}
+
+
 
 private class URLProtocolStub : URLProtocol {
     
@@ -155,6 +164,7 @@ private class URLProtocolStub : URLProtocol {
     override func startLoading() {
         guard let url = request.url, let stub =  URLProtocolStub.stubs else { return }
         
+        /* we pass the data forward to the  URL loading system by intercepting it here , we tell the URL system to return back - data/response/error accordingly */
         if let data = stub.data {
             client?.urlProtocol(self, didLoad: data)
         }
