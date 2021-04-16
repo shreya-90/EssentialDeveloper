@@ -17,7 +17,7 @@ import XCTest
 //    func resume()
 //}
 
-class URLSessionHttpCLient {
+class URLSessionHttpCLient : HTTPClient {
     private let session : URLSession
     
     init(session : URLSession = .shared){
@@ -161,7 +161,7 @@ class URLSessionHTTPClientTests : XCTestCase {
     //MARK:- Helper Methods
     
     /* factory method for sut */
-    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> URLSessionHttpCLient {
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> HTTPClient {
         let sut =  URLSessionHttpCLient()
         checkForMemoryLeaks(sut, file: file,line:line)
         return sut
