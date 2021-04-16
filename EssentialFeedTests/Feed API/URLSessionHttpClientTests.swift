@@ -53,13 +53,13 @@ class URLSessionHTTPClientTests : XCTestCase {
     override class func setUp() {    /* setup and teardown are run for each test case */
         
         super.setUp()
-        URLProtocolStub.startInterceptingRequests()
+//        URLProtocolStub.startInterceptingRequests()
     }
     
     override func tearDown() {
         
         super.tearDown()
-        URLProtocolStub.stopInterceptingRequests()
+//        URLProtocolStub.stopInterceptingRequests()
     }
     /* checks if we stubbed with error then we get back error*/
     func test_getFromURL_failsOnRequestError(){
@@ -74,11 +74,10 @@ class URLSessionHTTPClientTests : XCTestCase {
         URLProtocolStub.stopInterceptingRequests()
     }
     
-    
+    /* Checks for Invalid states (table)*/
         func test_getFromURL_failsOnAllNilValues(){
             
             URLProtocolStub.startInterceptingRequests()
-            
             XCTAssertNotNil(resultErrorFor(data: nil, response: nil,error: nil))
             URLProtocolStub.stopInterceptingRequests()
         }
