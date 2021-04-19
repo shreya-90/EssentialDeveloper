@@ -94,7 +94,7 @@ class EssentialFeedAPIEndToEndTests: XCTestCase {
     
     private func imageURL(at index : Int) -> URL {
            return URL(string: "https://url-\(index+1).com")!
-       }
+    }
     
     
     
@@ -105,7 +105,7 @@ class EssentialFeedAPIEndToEndTests: XCTestCase {
                checkForMemoryLeaks(client,file: file, line: line)
                checkForMemoryLeaks(client,file: file, line: line)
 
-               let exp = expectation(description: "waiting for load ...")
+               let exp = expectation(description: "waiting for load to finish ...")
                
                var receivedResult : LoadFeedResult?
                loader.load { result in
