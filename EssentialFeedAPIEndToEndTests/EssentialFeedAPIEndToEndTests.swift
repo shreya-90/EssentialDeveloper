@@ -78,6 +78,10 @@ class EssentialFeedAPIEndToEndTests: XCTestCase {
         ][index]
     }
     
+    private func imageURL(at index : Int) -> URL {
+        return URL(string: "https://url-\(index+1).com")!
+    }
+    
     private func location(at index : Int) -> String? {
         return [
             "Location 1",
@@ -91,9 +95,7 @@ class EssentialFeedAPIEndToEndTests: XCTestCase {
         ][index]
     }
     
-    private func imageURL(at index : Int) -> URL {
-           return URL(string: "https://url-\(index+1).com")!
-       }
+    
     
     
     private func getFeedResult(file: StaticString = #file, line: UInt = #line) -> LoadFeedResult? {
