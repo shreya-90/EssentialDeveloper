@@ -122,6 +122,7 @@ class URLSessionHTTPClientTests : XCTestCase {
         
         let url = anyURL()
         let exp = expectation(description: "wait for request to complete...")
+       
         URLProtocolStub.observeRequests { request in
             XCTAssertEqual(request.url, url)
             XCTAssertEqual(request.httpMethod, "GET")
@@ -129,9 +130,11 @@ class URLSessionHTTPClientTests : XCTestCase {
             exp.fulfill()
         }
         
-        makeSUT().get(from: anyURL()) { _ in }
+        let exp2 = expectation(description: "wait for request to complete...")
+
+        makeSUT().get(from: anyURL()) { _ in exp2.fulfill() }
         
-        wait(for: [exp], timeout: 1.0)
+        wait(for: [exp,exp2], timeout: 1.0)
         
         URLProtocolStub.stopInterceptingRequests()
     }
@@ -256,7 +259,7 @@ private class URLProtocolStub : URLProtocol {
 //        guard let url =  request.url else { return false }
 //
 //        return URLProtocolStub.stubs[url] != nil
-        requestObserver?(request)
+        
         return true
     }
     
@@ -265,6 +268,11 @@ private class URLProtocolStub : URLProtocol {
     }
     
     override func startLoading() {
+        if let requestObserver = URLProtocolStub.requestObserver {
+            client?.urlProtocolDidFinishLoading(self)
+            return requestObserver(request)
+        }
+        
         guard let url = request.url, let stub =  URLProtocolStub.stubs else { return }
         
         /* we pass the data forward to the  URL loading system by intercepting it here , we tell the URL system to return back - data/response/error accordingly */
