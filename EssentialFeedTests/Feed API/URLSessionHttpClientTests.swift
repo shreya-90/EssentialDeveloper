@@ -9,55 +9,36 @@
 import Foundation
 import XCTest
 
-//protocol HttpSession {
-//    func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> HTTPSessionTask
-//}
-//
-//protocol HTTPSessionTask {
-//    func resume()
-//}
-
-
 class URLSessionHTTPClientTests : XCTestCase {
     
-//    func test_get_createsDataTaskWithURL(){
-//        let url = URL(string: "http://any-url.com")!
-//        let session = URLSessionSpy()
-//        let sut = URLSessionHttpCLient(session:session)
-//
-//        sut.get(from : url)
-//
-//        XCTAssertEqual(session.receivedURLs, [url])
-//    }
-        
-    override class func setUp() {    /* setup and teardown are run for each test case */
-        
-        super.setUp()
-//        URLProtocolStub.startInterceptingRequests()
+    /* setup and teardown are run for each test case */
+    override func setUp() {
+         super.setUp()
+        URLProtocolStub.startInterceptingRequests()
     }
-    
     override func tearDown() {
         
         super.tearDown()
-//        URLProtocolStub.stopInterceptingRequests()
+        URLProtocolStub.stopInterceptingRequests()
     }
+    
     /* checks if we stubbed with error then we get back error*/
     func test_getFromURL_failsOnRequestError(){
         
-        URLProtocolStub.startInterceptingRequests()
+//        URLProtocolStub.startInterceptingRequests()
         let requestError = anyNSError()
 
         let receivedError = resultErrorFor(data: nil, response:nil,error: requestError )
             
         XCTAssertEqual(receivedError as NSError?,requestError as NSError?)
                 
-        URLProtocolStub.stopInterceptingRequests()
+//        URLProtocolStub.stopInterceptingRequests()
     }
     
-    /* Checks for Invalid states (table)*/
+        /* Checks for Invalid states (table)*/
         func test_getFromURL_failsOnAllInvalidRepresentationCases(){
             
-            URLProtocolStub.startInterceptingRequests()
+//            URLProtocolStub.startInterceptingRequests()
             
             
             
@@ -75,12 +56,12 @@ class URLSessionHTTPClientTests : XCTestCase {
 
 
 
-            URLProtocolStub.stopInterceptingRequests()
+//            URLProtocolStub.stopInterceptingRequests()
         }
     
     func test_getFromURL_succeedsOnHTTPURLResponseWithData() {
         
-        URLProtocolStub.startInterceptingRequests()
+//        URLProtocolStub.startInterceptingRequests()
          let data = anyData()
          let response = anyHTTPURLResponse()
         
@@ -92,7 +73,7 @@ class URLSessionHTTPClientTests : XCTestCase {
         XCTAssertEqual(receivedValues?.response.statusCode, response.statusCode)
         
        
-        URLProtocolStub.stopInterceptingRequests()
+//        URLProtocolStub.stopInterceptingRequests()
     }
     
     /* Our assumption abput the framework got validated here **/
@@ -100,7 +81,7 @@ class URLSessionHTTPClientTests : XCTestCase {
     
         func test_getFromURL_succeedsWithEmptyDataOnHTTPURLResponseWithNilData() {
             
-            URLProtocolStub.startInterceptingRequests()
+//            URLProtocolStub.startInterceptingRequests()
            
             let response = anyHTTPURLResponse()
             
@@ -113,16 +94,17 @@ class URLSessionHTTPClientTests : XCTestCase {
 
 
              
-            URLProtocolStub.stopInterceptingRequests()
+//            URLProtocolStub.stopInterceptingRequests()
         }
     
     /* checks the URL comparison and other request parameters (body, query paramaters )*/
     func test_getFromURL_performsGETRequestsWithURL(){
-        URLProtocolStub.startInterceptingRequests()
+        
+//        URLProtocolStub.startInterceptingRequests()
         
         let url = anyURL()
         let exp = expectation(description: "wait for request to complete...")
-       
+        
         URLProtocolStub.observeRequests { request in
             XCTAssertEqual(request.url, url)
             XCTAssertEqual(request.httpMethod, "GET")
@@ -136,7 +118,7 @@ class URLSessionHTTPClientTests : XCTestCase {
         
         wait(for: [exp,exp2], timeout: 1.0)
         
-        URLProtocolStub.stopInterceptingRequests()
+//        URLProtocolStub.stopInterceptingRequests()
     }
     
     //MARK:- Helper Methods

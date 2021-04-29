@@ -251,6 +251,9 @@ class RemoteFeedLoaderTests :  XCTestCase {
             return messages.map { $0.url }
         }
         
+        
+        // basically captures the signature of the GET method
+        //good design - spies capture values
         private var messages = [(url : URL,completion :
             (HttpClientResult) -> Void)]()
        
