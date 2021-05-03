@@ -31,6 +31,8 @@
 		35A29740263ACD1400F1AAC5 /* CacheFeedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2973F263ACD1400F1AAC5 /* CacheFeedUseCaseTests.swift */; };
 		35A29743264020DE00F1AAC5 /* LocalFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A29742264020DE00F1AAC5 /* LocalFeedLoader.swift */; };
 		35A297442640217500F1AAC5 /* LocalFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A29742264020DE00F1AAC5 /* LocalFeedLoader.swift */; };
+		35A297462640221300F1AAC5 /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A297452640221300F1AAC5 /* FeedStore.swift */; };
+		35A297472640221300F1AAC5 /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A297452640221300F1AAC5 /* FeedStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,7 @@
 		35A2972C262D628700F1AAC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35A2973F263ACD1400F1AAC5 /* CacheFeedUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheFeedUseCaseTests.swift; sourceTree = "<group>"; };
 		35A29742264020DE00F1AAC5 /* LocalFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedLoader.swift; sourceTree = "<group>"; };
+		35A297452640221300F1AAC5 /* FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				35A29742264020DE00F1AAC5 /* LocalFeedLoader.swift */,
+				35A297452640221300F1AAC5 /* FeedStore.swift */,
 			);
 			path = "Feed Cache";
 			sourceTree = "<group>";
@@ -348,6 +352,7 @@
 				356FFD0D261878CA003C6489 /* FeedItemsMapper.swift in Sources */,
 				356FFCB125FFC527003C6489 /* FeedItem.swift in Sources */,
 				356FFC9D25FA1795003C6489 /* FeedLoader.swift in Sources */,
+				35A297462640221300F1AAC5 /* FeedStore.swift in Sources */,
 				35A29743264020DE00F1AAC5 /* LocalFeedLoader.swift in Sources */,
 				356FFCB3260B39DB003C6489 /* HttpClient.swift in Sources */,
 				356FFCAD25FF78B4003C6489 /* RemoteFeedLoader.swift in Sources */,
@@ -361,6 +366,7 @@
 			files = (
 				356FFCAB25FF78A9003C6489 /* FeedItem.swift in Sources */,
 				356FFCA425FA2295003C6489 /* RemoteFeedLoaderTests.swift in Sources */,
+				35A297472640221300F1AAC5 /* FeedStore.swift in Sources */,
 				356FFD142625B589003C6489 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 				356FFCA725FB8D16003C6489 /* RemoteFeedLoader.swift in Sources */,
 				356FFD11261C4F92003C6489 /* URLSessionHttpClientTests.swift in Sources */,
