@@ -99,7 +99,7 @@ class CacheFeedUseCaseTests: XCTestCase {
         var sut: LocalFeedLoader?
         sut = LocalFeedLoader(store: store, currentDate: Date.init)
         
-        var receivedResults = [Error?]()
+        var receivedResults = [LocalFeedLoader.SaveResult]()
         sut?.save([uniqueItem()]){ receivedResults.append($0) }
         
         sut = nil
@@ -114,7 +114,7 @@ class CacheFeedUseCaseTests: XCTestCase {
            var sut: LocalFeedLoader?
            sut = LocalFeedLoader(store: store, currentDate: Date.init)
            
-           var receivedResults = [Error?]()
+           var receivedResults = [LocalFeedLoader.SaveResult]()
            sut?.save([uniqueItem()]){ receivedResults.append($0) }
            
           
