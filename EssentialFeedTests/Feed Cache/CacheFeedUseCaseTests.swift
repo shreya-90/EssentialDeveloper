@@ -18,8 +18,9 @@ class LocalFeedLoader {
         self.currentDate = currentDate
     }
     
-    func save(_ items: [FeedItem]){
+    func save(_ items: [FeedItem], completion : @escaping (Error?) -> Void){
         store.deleteCachedFeed { [unowned self] error in
+            completion(error)
             if error == nil {
                 self.store.insert(items,timestamp: self.currentDate())
             }
@@ -69,7 +70,7 @@ class CacheFeedUseCaseTests: XCTestCase {
         
         let (sut,store) = makeSUT()
         let items = [uniqueItem(),uniqueItem()]
-        sut.save(items)
+        sut.save(items){_ in }
         
         XCTAssertEqual(store.receivedMessages, [.deleteCacheFeed])
     }
@@ -78,7 +79,7 @@ class CacheFeedUseCaseTests: XCTestCase {
         let (sut,store) = makeSUT()
         let items = [uniqueItem(),uniqueItem()]
         
-        sut.save(items)
+        sut.save(items){_ in }
         let deletionError = anyNSError()
         store.completeDeletion(with: deletionError)
         
@@ -93,7 +94,7 @@ class CacheFeedUseCaseTests: XCTestCase {
         let (sut,store) = makeSUT(currentDate:{ timestamp })
         let items = [uniqueItem(),uniqueItem()]
 
-        sut.save(items)
+        sut.save(items){_ in }
         store.completeDeletionSuccessfully()
 
 //        XCTAssertEqual(store.insertCallCount, 1)
@@ -104,6 +105,26 @@ class CacheFeedUseCaseTests: XCTestCase {
         XCTAssertEqual(store.receivedMessages, [.deleteCacheFeed,.insert(items,timestamp)])   // testing which messages were invoks, in which order and which values!!!
 
     }
+    
+    func test_save_failsOnDeletionError(){
+            let (sut,store) = makeSUT()
+            let items = [uniqueItem(),uniqueItem()]
+            let deletionError = anyNSError()
+            var receivedError : Error?
+
+            var exp = expectation(description: "Waiting for save completion ...")
+                sut.save(items) { error in
+                receivedError  = error
+                exp.fulfill()               //Make sure the block was invoked
+            }
+
+            
+            store.completeDeletion(with: deletionError)
+
+            wait(for: [exp], timeout: 1.0)
+            XCTAssertEqual(receivedError as NSError?, deletionError)
+        
+       }
     
     //MARK: - Helper methods
     
@@ -124,7 +145,7 @@ class CacheFeedUseCaseTests: XCTestCase {
             return  URL(string: "http://any-url.com")!
     }
     
-    private func anyNSError() -> Error {
-           return NSError(domain: "any Error", code: 0)
+    private func anyNSError() -> NSError {
+        return NSError(domain: "any error", code: 0)
     }
 }
