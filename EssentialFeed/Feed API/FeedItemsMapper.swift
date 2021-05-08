@@ -1,5 +1,5 @@
 //
-//  FeedItemsMapper.swift
+//  FeedImagesMapper.swift
 //  EssentialFeed
 //
 //  Created by Shreya Pallan on 03/04/21.
@@ -8,29 +8,18 @@
 
 import Foundation
 
-internal final class FeedItemsMapper {
+internal final class FeedImagesMapper {
     
     private struct Root:Decodable {
-        let items : [RemoteFeedItem]
+        let items : [RemoteFeedImage]
     }
     
     private static var OK_200 : Int { return 200 }
     
-//    internal static func map(_ data : Data, _ response : HTTPURLResponse) throws -> [FeedItem] {
-//        
-//         guard response.statusCode == OK_200 else {
-//                   throw RemoteFeedLoader.Error.invalidData
-//         }
-//               
-//         return try JSONDecoder().decode(Root.self, from: data).items.map({$0.item})
-//        
-//    }
-    
-    internal static func map(_ data: Data, _ response : HTTPURLResponse) throws -> [RemoteFeedItem] {
+    internal static func map(_ data: Data, _ response : HTTPURLResponse) throws -> [RemoteFeedImage] {
          
         guard response.statusCode == OK_200,
         let root =  try? JSONDecoder().decode(Root.self, from: data) else {
-//                throw RemoteFeedLoader.Error.invalidData
             throw RemoteFeedLoader.Error.invalidData
         }
         
