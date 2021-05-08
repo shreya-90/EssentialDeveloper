@@ -33,6 +33,8 @@
 		35A297442640217500F1AAC5 /* LocalFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A29742264020DE00F1AAC5 /* LocalFeedLoader.swift */; };
 		35A297462640221300F1AAC5 /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A297452640221300F1AAC5 /* FeedStore.swift */; };
 		35A297472640221300F1AAC5 /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A297452640221300F1AAC5 /* FeedStore.swift */; };
+		35A2974926466C6C00F1AAC5 /* RemoteFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2974826466C6C00F1AAC5 /* RemoteFeedItem.swift */; };
+		35A2974A26466C6C00F1AAC5 /* RemoteFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2974826466C6C00F1AAC5 /* RemoteFeedItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,7 @@
 		35A2973F263ACD1400F1AAC5 /* CacheFeedUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheFeedUseCaseTests.swift; sourceTree = "<group>"; };
 		35A29742264020DE00F1AAC5 /* LocalFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedLoader.swift; sourceTree = "<group>"; };
 		35A297452640221300F1AAC5 /* FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
+		35A2974826466C6C00F1AAC5 /* RemoteFeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +166,7 @@
 				356FFCB2260B39DB003C6489 /* HttpClient.swift */,
 				356FFD0C261878CA003C6489 /* FeedItemsMapper.swift */,
 				35A297212629BC1900F1AAC5 /* URLSessionHttpCLient.swift */,
+				35A2974826466C6C00F1AAC5 /* RemoteFeedItem.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
@@ -351,6 +355,7 @@
 			files = (
 				356FFD0D261878CA003C6489 /* FeedItemsMapper.swift in Sources */,
 				356FFCB125FFC527003C6489 /* FeedItem.swift in Sources */,
+				35A2974926466C6C00F1AAC5 /* RemoteFeedItem.swift in Sources */,
 				356FFC9D25FA1795003C6489 /* FeedLoader.swift in Sources */,
 				35A297462640221300F1AAC5 /* FeedStore.swift in Sources */,
 				35A29743264020DE00F1AAC5 /* LocalFeedLoader.swift in Sources */,
@@ -376,6 +381,7 @@
 				356FFD0E26187991003C6489 /* FeedItemsMapper.swift in Sources */,
 				356FFCAC25FF78B1003C6489 /* FeedLoader.swift in Sources */,
 				356FFCB4260B3AA0003C6489 /* HttpClient.swift in Sources */,
+				35A2974A26466C6C00F1AAC5 /* RemoteFeedItem.swift in Sources */,
 				356FFC8F25FA0EB3003C6489 /* EssentialFeedTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
