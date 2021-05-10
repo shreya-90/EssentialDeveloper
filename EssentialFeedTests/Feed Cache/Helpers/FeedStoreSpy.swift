@@ -22,6 +22,7 @@ import EssentialFeed
     
     private var deletionCompletions = [DeletionCompletion]()
     private var insertionCompletions = [InsertionCompletion]()
+    private var retrievalCompletions = [RetrievalCompletion]()
     
     func deleteCachedFeed(completion : @escaping DeletionCompletion){
         deletionCompletions.append(completion)
@@ -33,6 +34,10 @@ import EssentialFeed
     }
     func completeInsertion(with error: Error , at index: Int = 0){
         insertionCompletions[index](error)
+    }
+    
+    func completeRetrieval(with error : Error, at index: Int = 0){
+        retrievalCompletions[index](error)
     }
     
     func completeDeletionSuccessfully(at index: Int = 0) {
@@ -48,7 +53,8 @@ import EssentialFeed
          insertionCompletions[index](nil)
     }
     
-    func retrieve() {
+    func retrieve(completion: @escaping RetrievalCompletion) {
+        retrievalCompletions.append(completion)
         receivedMessages.append(.retrieval)
     }
 }
