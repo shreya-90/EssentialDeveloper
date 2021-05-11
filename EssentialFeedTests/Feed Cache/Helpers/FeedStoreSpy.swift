@@ -57,4 +57,8 @@ import EssentialFeed
         retrievalCompletions.append(completion)
         receivedMessages.append(.retrieval)
     }
+    
+    func completeRetrievalWithEmptyCache(at index: Int = 0) {
+        retrievalCompletions[index](nil)
+    }
 }
