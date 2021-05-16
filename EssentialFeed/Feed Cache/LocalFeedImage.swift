@@ -9,7 +9,7 @@
 import Foundation
 
 
-public struct LocalFeedImage : Equatable {
+public struct LocalFeedImage : Equatable, Codable {
     
    public let id : UUID
     public let description : String?
@@ -25,7 +25,7 @@ public struct LocalFeedImage : Equatable {
     }
 }
 
-extension LocalFeedImage : Decodable {
+extension LocalFeedImage {
         private enum CodingKeys: String, CodingKey {
             case id
             case description
