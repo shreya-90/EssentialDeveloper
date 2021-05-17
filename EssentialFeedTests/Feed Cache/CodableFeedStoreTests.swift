@@ -78,7 +78,7 @@ class CodableFeedStoreTests: XCTestCase {
         undoStoreSideEffects()
     }
     
-    func test_retrieve_delicersEmptyOnEmptyCache(){
+    func test_retrieve_deliversEmptyOnEmptyCache(){
         
         let sut = makeSUT()
         expect(sut, toRetrieve: .empty)
@@ -93,7 +93,7 @@ class CodableFeedStoreTests: XCTestCase {
     }
     
     
-    func test_retrieveAfterInsertingToEMptyCache_deliverInsertedValues(){
+    func test_retrieve_deliversFoundValuesAfterInsertingToEmptyCache(){
         
         let sut = makeSUT()
         let feed = uniqueImageFeed().local
