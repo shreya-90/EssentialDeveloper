@@ -47,6 +47,7 @@
 		35A297602651126800F1AAC5 /* CodableFeedStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2975F2651126800F1AAC5 /* CodableFeedStoreTests.swift */; };
 		35A297622653CB8000F1AAC5 /* CodableFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A297612653CB8000F1AAC5 /* CodableFeedStore.swift */; };
 		35A297632653CC4200F1AAC5 /* CodableFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A297612653CB8000F1AAC5 /* CodableFeedStore.swift */; };
+		35A297652656628400F1AAC5 /* FeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A297642656628400F1AAC5 /* FeedStoreSpecs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		35A2975C264D407B00F1AAC5 /* FeedCachePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCachePolicy.swift; sourceTree = "<group>"; };
 		35A2975F2651126800F1AAC5 /* CodableFeedStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFeedStoreTests.swift; sourceTree = "<group>"; };
 		35A297612653CB8000F1AAC5 /* CodableFeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFeedStore.swift; sourceTree = "<group>"; };
+		35A297642656628400F1AAC5 /* FeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStoreSpecs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +241,7 @@
 				35A2974B26466CC400F1AAC5 /* LocalFeedImage.swift */,
 				35A2975C264D407B00F1AAC5 /* FeedCachePolicy.swift */,
 				35A297612653CB8000F1AAC5 /* CodableFeedStore.swift */,
+				35A297642656628400F1AAC5 /* FeedStoreSpecs.swift */,
 			);
 			path = "Feed Cache";
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				356FFC9D25FA1795003C6489 /* FeedLoader.swift in Sources */,
 				35A2974C26466CC400F1AAC5 /* LocalFeedImage.swift in Sources */,
 				35A297462640221300F1AAC5 /* FeedStore.swift in Sources */,
+				35A297652656628400F1AAC5 /* FeedStoreSpecs.swift in Sources */,
 				35A29743264020DE00F1AAC5 /* LocalFeedLoader.swift in Sources */,
 				35A297622653CB8000F1AAC5 /* CodableFeedStore.swift in Sources */,
 				356FFCB3260B39DB003C6489 /* HttpClient.swift in Sources */,
