@@ -51,6 +51,7 @@
 		35A297672656650600F1AAC5 /* XCTestCase+FeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A297662656650600F1AAC5 /* XCTestCase+FeedStoreSpecs.swift */; };
 		35A297682656654800F1AAC5 /* FeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A297642656628400F1AAC5 /* FeedStoreSpecs.swift */; };
 		35A2976D2657AE3400F1AAC5 /* XCTestCase+FailableRetrieveFeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2976C2657AE3400F1AAC5 /* XCTestCase+FailableRetrieveFeedStoreSpecs.swift */; };
+		35A297702657B07200F1AAC5 /* XCTestCase+FailableInsertFeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2976F2657B07200F1AAC5 /* XCTestCase+FailableInsertFeedStoreSpecs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		35A297642656628400F1AAC5 /* FeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStoreSpecs.swift; sourceTree = "<group>"; };
 		35A297662656650600F1AAC5 /* XCTestCase+FeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FeedStoreSpecs.swift"; sourceTree = "<group>"; };
 		35A2976C2657AE3400F1AAC5 /* XCTestCase+FailableRetrieveFeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FailableRetrieveFeedStoreSpecs.swift"; sourceTree = "<group>"; };
+		35A2976F2657B07200F1AAC5 /* XCTestCase+FailableInsertFeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FailableInsertFeedStoreSpecs.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 			children = (
 				35A297662656650600F1AAC5 /* XCTestCase+FeedStoreSpecs.swift */,
 				35A2976C2657AE3400F1AAC5 /* XCTestCase+FailableRetrieveFeedStoreSpecs.swift */,
+				35A2976F2657B07200F1AAC5 /* XCTestCase+FailableInsertFeedStoreSpecs.swift */,
 				35A297532649585B00F1AAC5 /* Helpers */,
 				35A2973F263ACD1400F1AAC5 /* CacheFeedUseCaseTests.swift */,
 				35A297502649518800F1AAC5 /* LoadFeedFromCacheUseCaseTests.swift */,
@@ -437,6 +440,7 @@
 				35A297672656650600F1AAC5 /* XCTestCase+FeedStoreSpecs.swift in Sources */,
 				35A297632653CC4200F1AAC5 /* CodableFeedStore.swift in Sources */,
 				35A29740263ACD1400F1AAC5 /* CacheFeedUseCaseTests.swift in Sources */,
+				35A297702657B07200F1AAC5 /* XCTestCase+FailableInsertFeedStoreSpecs.swift in Sources */,
 				35A297552649589C00F1AAC5 /* FeedStoreSpy.swift in Sources */,
 				35A29757264D059300F1AAC5 /* ValidateFeedCacheUseCaseTests.swift in Sources */,
 				35A2975B264D107600F1AAC5 /* SharedTestHelpers.swift in Sources */,
