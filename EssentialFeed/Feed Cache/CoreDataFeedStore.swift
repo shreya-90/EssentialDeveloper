@@ -13,7 +13,7 @@ public final class CoreDataFeedStore: FeedStore {
     private let container: NSPersistentContainer
 
     public init(bundle: Bundle = .main) throws {
-        container = try NSPersistentContainer.load(modelName: "FeedStore", in: bundle)
+        container = try NSPersistentContainer.load(modelName: "FeedDB", in: bundle)
     }
     
     public func deleteCachedFeed(completion: @escaping DeletionCompletion) {
@@ -47,6 +47,17 @@ private extension NSPersistentContainer {
         try loadError.map { throw LoadingError.failedToLoadPersistentStores($0) }
 
         return container
+        
+//        var persistentContainer: NSPersistentContainer = {
+//               let container = NSPersistentContainer(name: "tyfug")
+//               container.loadPersistentStores { description, error in
+//                   if let error = error {
+//                       fatalError("Unable to load persistent stores: \(error)")
+//                   }
+//               }
+//               return container
+//           }()
+//        return persistentContainer
     }
 }
 
