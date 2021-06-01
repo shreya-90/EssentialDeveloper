@@ -523,13 +523,9 @@
 				356FFCB3260B39DB003C6489 /* HttpClient.swift in Sources */,
 				356FFCAD25FF78B4003C6489 /* RemoteFeedLoader.swift in Sources */,
 				35A297222629BC1900F1AAC5 /* URLSessionHttpCLient.swift in Sources */,
-<<<<<<< HEAD
-				35A297772657C5F500F1AAC5 /* CoreDataFeedStore.swift in Sources */,
-=======
 				35A203DE265CDF0A0060E319 /* ManagedCache.swift in Sources */,
 				35A203C62658126D0060E319 /* CoreDataFeedStore.swift in Sources */,
 				35A203E0265CDF530060E319 /* ManagedFeedImage.swift in Sources */,
->>>>>>> feature/image-feed/cache-feed-usecase
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,12 +533,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-				35A297782657C62C00F1AAC5 /* CoreDataFeedStore.swift in Sources */,
-				35A297602651126800F1AAC5 /* CodableFeedStoreTests.swift in Sources */,
-				356FFCAB25FF78A9003C6489 /* FeedImage.swift in Sources */,
-=======
->>>>>>> feature/image-feed/cache-feed-usecase
 				35A297682656654800F1AAC5 /* FeedStoreSpecs.swift in Sources */,
 				356FFCA425FA2295003C6489 /* RemoteFeedLoaderTests.swift in Sources */,
 				356FFD142625B589003C6489 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
@@ -935,15 +925,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-<<<<<<< HEAD
-		35A297792657C7F900F1AAC5 /*  FeedStore.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				35A2977A2657C7F900F1AAC5 /*  FeedStore.xcdatamodel */,
-			);
-			currentVersion = 35A2977A2657C7F900F1AAC5 /*  FeedStore.xcdatamodel */;
-			path = " FeedStore.xcdatamodeld";
-=======
 		35A203D5265B91F10060E319 /* CoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
@@ -951,7 +932,6 @@
 			);
 			currentVersion = 35A203D6265B91F10060E319 /* CoreData.xcdatamodel */;
 			path = CoreData.xcdatamodeld;
->>>>>>> feature/image-feed/cache-feed-usecase
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
