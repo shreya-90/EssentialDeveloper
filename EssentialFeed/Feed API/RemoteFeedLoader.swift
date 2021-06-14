@@ -20,7 +20,7 @@ public final class RemoteFeedLoader : FeedLoader{
         
     }
     
-    public typealias Result = LoadFeedResult   //doemain error type
+    public typealias Result = FeedLoader.Result    //doemain error type
     
 //    public enum Result : Equatable {
 //        case success([FeedImage])
