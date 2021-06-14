@@ -8,12 +8,12 @@
 
 import Foundation
 
-public enum LoadFeedResult {
-    case success([FeedImage])
-    case failure(Error)   //Swift Error type
-}
+//public enum LoadFeedResult {
+//    case success([FeedImage])
+//    case failure(Error)   //Swift Error type
+//}
 
-//extension LoadFeedResult: Equatable where Error: Equatable {}
+public typealias LoadFeedResult = Result<[FeedImage],Error>
 
 public protocol FeedLoader {
     
