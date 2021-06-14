@@ -116,7 +116,7 @@ class RemoteFeedLoaderTests :  XCTestCase {
          let (sut,client) = makeSUT()
         
         expect(sut, toCompleteWith: RemoteFeedLoader.Result.success([]), when: {
-            let emptyListJSON = Data(bytes: "{\"items\": []}".utf8)
+            let emptyListJSON = Data("{\"items\": []}".utf8)
             client.complete(withStatusCode: 200, data: emptyListJSON)
         })
        
@@ -253,9 +253,9 @@ class RemoteFeedLoaderTests :  XCTestCase {
         // basically captures the signature of the GET method
         //good design - spies capture values
         private var messages = [(url : URL,completion :
-            (HttpClientResult) -> Void)]()
+            (HTTPClient.Result) -> Void)]()
        
-        func get(from url: URL, completion: @escaping (HttpClientResult) -> Void)
+        func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void)
         {
             messages.append((url,completion))
 //            completions.append(completion)
@@ -274,7 +274,7 @@ class RemoteFeedLoaderTests :  XCTestCase {
                 statusCode: code,
                 httpVersion: nil,
                 headerFields: nil)!
-            messages[index].completion(.success(data,response))
+            messages[index].completion(.success((data,response)))
         }
         
         
