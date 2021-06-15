@@ -52,9 +52,7 @@
 		35A297702657B07200F1AAC5 /* XCTestCase+FailableInsertFeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2976F2657B07200F1AAC5 /* XCTestCase+FailableInsertFeedStoreSpecs.swift */; };
 		35A297722657B1FB00F1AAC5 /* XCTestCase+FailableDeleteFeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A297712657B1FB00F1AAC5 /* XCTestCase+FailableDeleteFeedStoreSpecs.swift */; };
 		35A297752657C4F800F1AAC5 /* CoreDataFeedStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A297742657C4F800F1AAC5 /* CoreDataFeedStoreTests.swift */; };
-		35A297772657C5F500F1AAC5 /* CoreDataFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A297762657C5F500F1AAC5 /* CoreDataFeedStore.swift */; };
-		35A297782657C62C00F1AAC5 /* CoreDataFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A297762657C5F500F1AAC5 /* CoreDataFeedStore.swift */; };
-		35A2977B2657C7F900F1AAC5 /*  FeedStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35A297792657C7F900F1AAC5 /*  FeedStore.xcdatamodeld */; };
+		35A2977B2657C7F900F1AAC5 /* (null) in Sources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,7 +126,6 @@
 		35A297712657B1FB00F1AAC5 /* XCTestCase+FailableDeleteFeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FailableDeleteFeedStoreSpecs.swift"; sourceTree = "<group>"; };
 		35A297742657C4F800F1AAC5 /* CoreDataFeedStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFeedStoreTests.swift; sourceTree = "<group>"; };
 		35A297762657C5F500F1AAC5 /* CoreDataFeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFeedStore.swift; sourceTree = "<group>"; };
-		35A2977A2657C7F900F1AAC5 /*  FeedStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = " FeedStore.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +166,6 @@
 		356FFC7625FA0EB3003C6489 = {
 			isa = PBXGroup;
 			children = (
-				35A297792657C7F900F1AAC5 /*  FeedStore.xcdatamodeld */,
 				356FFC8225FA0EB3003C6489 /* EssentialFeed */,
 				356FFC8D25FA0EB3003C6489 /* EssentialFeedTests */,
 				35A29729262D628700F1AAC5 /* EssentialFeedAPIEndToEndTests */,
@@ -516,7 +512,7 @@
 				35A2975D264D407B00F1AAC5 /* FeedCachePolicy.swift in Sources */,
 				356FFC9D25FA1795003C6489 /* FeedLoader.swift in Sources */,
 				35A2974C26466CC400F1AAC5 /* LocalFeedImage.swift in Sources */,
-				35A2977B2657C7F900F1AAC5 /*  FeedStore.xcdatamodeld in Sources */,
+				35A2977B2657C7F900F1AAC5 /* (null) in Sources */,
 				35A297462640221300F1AAC5 /* FeedStore.swift in Sources */,
 				35A29743264020DE00F1AAC5 /* LocalFeedLoader.swift in Sources */,
 				35A297622653CB8000F1AAC5 /* CodableFeedStore.swift in Sources */,
@@ -734,6 +730,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.shreyapallan.EssentialFeed;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -760,6 +757,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.shreyapallan.EssentialFeed;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -779,6 +777,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shreyapallan.EssentialFeedTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -798,6 +797,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shreyapallan.EssentialFeedTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
