@@ -16,6 +16,7 @@
 		35FBDD452678977D0062704C /* PrototypeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FBDD442678977D0062704C /* PrototypeUITests.swift */; };
 		35FBDD552678ABA40062704C /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FBDD542678ABA40062704C /* FeedViewController.swift */; };
 		35FBDD572678AF970062704C /* FeedImageViewModel+PrototypeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FBDD562678AF970062704C /* FeedImageViewModel+PrototypeData.swift */; };
+		35FBDD592678B0700062704C /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FBDD582678B0700062704C /* FeedImageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		35FBDD462678977D0062704C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35FBDD542678ABA40062704C /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		35FBDD562678AF970062704C /* FeedImageViewModel+PrototypeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedImageViewModel+PrototypeData.swift"; sourceTree = "<group>"; };
+		35FBDD582678B0700062704C /* FeedImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				35FBDD302678977C0062704C /* Info.plist */,
 				35FBDD542678ABA40062704C /* FeedViewController.swift */,
 				35FBDD562678AF970062704C /* FeedImageViewModel+PrototypeData.swift */,
+				35FBDD582678B0700062704C /* FeedImageCell.swift */,
 			);
 			path = Prototype;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				35FBDD552678ABA40062704C /* FeedViewController.swift in Sources */,
 				35FBDD572678AF970062704C /* FeedImageViewModel+PrototypeData.swift in Sources */,
 				35FBDD25267897770062704C /* SceneDelegate.swift in Sources */,
+				35FBDD592678B0700062704C /* FeedImageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
